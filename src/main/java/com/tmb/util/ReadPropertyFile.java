@@ -1,27 +1,49 @@
 package com.tmb.util;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import com.tmb.Constants.FrameworkConstants;
+
 public final class ReadPropertyFile {
-	 private ReadPropertyFile() {
-		 
-	 }
-	 public static String getValue(String key) throws Exception {
-		 String value="";
-		 
-		 Properties prop = new Properties();
-		 FileInputStream fip =
-				 new FileInputStream(System.getProperty("user.dir")+"/src/test/resources/FrameworkConfig/config.properties");
-		 prop.load(fip);
-		 value =prop.getProperty(key);
-		 if(Objects.isNull(value)) {
-			 throw new Exception("Property Name "+key +" is not Found.Please check config.properties");
-		 }
-		 
-		return value;
-	 }
-	 
+	private ReadPropertyFile() {
+
+	}
+
+	private static Properties prop = new Properties();
+	private static final Map<String, String> CONFIGMAP = new HashMap<>();
+
+	static {
+		FileInputStream fip;
+		try {
+			fip = new FileInputStream(FrameworkConstants.getConfigFilePath());
+			prop.load(fip);
+			for (Map.Entry<Object, Object> entry : prop.entrySet()) {
+				CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+			}
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	public static String getValue(String key) throws Exception {
+
+		if (Objects.isNull(CONFIGMAP.get(key)) || Objects.isNull(key)) {
+			throw new Exception("Property Name " + key + " is not Found.Please check config.properties");
+		}
+
+		return CONFIGMAP.get(key);
+	}
 
 }
