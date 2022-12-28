@@ -1,6 +1,5 @@
 package com.tmb.tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -11,15 +10,15 @@ public class BaseTest {
 	protected BaseTest() {
 		
 	}
-WebDriver driver;
+
 	
 	@BeforeMethod
-	public void setUp() {
+	protected void setUp() throws Exception {
 		Driver.initDriver();
 		
 	}
 	@AfterMethod
-	public void tearDown() {
+	protected void tearDown() {
 		Driver.quitDriver();
 	}
 
