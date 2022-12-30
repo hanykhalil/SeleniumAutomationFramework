@@ -1,9 +1,11 @@
 package com.tmb.tests;
 
-import org.openqa.selenium.By;
+import org.assertj.core.api.Assertions;
+
 import org.testng.annotations.Test;
 
-import com.tmb.driver.DriverManager;
+import com.tmb.pages.AccountPage;
+import com.tmb.pages.LoginPage;
 
 public final class LoginPageTest extends BaseTest {
 	private LoginPageTest() {
@@ -11,13 +13,15 @@ public final class LoginPageTest extends BaseTest {
 	}
 
 	@Test
-	public void Login() {
-
-		DriverManager.getDriver().findElement(By.xpath("//label[@for='username']/following-sibling::input[@id='username']"))
-		.sendKeys("singhabhi04");
-		DriverManager.getDriver().findElement(By.xpath("//label[@for='password']/following-sibling::input[@id='password']"))
-		.sendKeys("Test@123");
-		DriverManager.getDriver().findElement(By.xpath("//button[@name='login']")).click();
+	public void LoginLogOutTest() {
+		LoginPage loginPage = new LoginPage();
+		AccountPage accountPage = new AccountPage();
+	String welcomeText=	loginPage.enterUserName("singhabhi04").enterPassword("Test@123").clickLoginBtn().getWelcomeText();
+	Assertions.assertThat(welcomeText)
+	.contains("Hello singhabhi04");
+	accountPage.clickLogout();
+	
+	
 
 	}
 
