@@ -1,35 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-29T20:03:45 IST" name="Suite" finished-at="2022-12-29T20:03:54 IST" duration-ms="9265">
+  <suite started-at="2022-12-30T19:58:01 IST" name="Suite" finished-at="2022-12-30T19:58:36 IST" duration-ms="35048">
     <groups>
     </groups>
-    <test started-at="2022-12-29T20:03:45 IST" name="Test" finished-at="2022-12-29T20:03:54 IST" duration-ms="9265">
-      <class name="com.tmb.tests.LoginPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tmb.tests.LoginPageTest@d5b810e]" started-at="2022-12-29T20:03:45 IST" name="setUp" finished-at="2022-12-29T20:03:51 IST" duration-ms="6394" status="PASS">
+    <test started-at="2022-12-30T19:58:01 IST" name="Test" finished-at="2022-12-30T19:58:36 IST" duration-ms="35048">
+      <class name="com.tmb.tests.CheckoutProductTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tmb.tests.CheckoutProductTest@c88a337]" started-at="2022-12-30T19:58:10 IST" name="setUp" finished-at="2022-12-30T19:58:13 IST" duration-ms="3131" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="LoginLogOutTest()[pri:0, instance:com.tmb.tests.LoginPageTest@d5b810e]" started-at="2022-12-29T20:03:51 IST" name="LoginLogOutTest" finished-at="2022-12-29T20:03:54 IST" duration-ms="2677" status="PASS">
+        <test-method signature="checkOutasRegUser()[pri:0, instance:com.tmb.tests.CheckoutProductTest@c88a337]" started-at="2022-12-30T19:58:13 IST" name="checkOutasRegUser" finished-at="2022-12-30T19:58:36 IST" duration-ms="22334" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkOutasRegUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.CheckoutProductTest@c88a337]" started-at="2022-12-30T19:58:36 IST" name="tearDown" finished-at="2022-12-30T19:58:36 IST" duration-ms="188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.tmb.tests.CheckoutProductTest -->
+      <class name="com.tmb.tests.LoginPageTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tmb.tests.LoginPageTest@342c38f8]" started-at="2022-12-30T19:58:01 IST" name="setUp" finished-at="2022-12-30T19:58:08 IST" duration-ms="6664" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="LoginLogOutTest()[pri:0, instance:com.tmb.tests.LoginPageTest@342c38f8]" started-at="2022-12-30T19:58:08 IST" name="LoginLogOutTest" finished-at="2022-12-30T19:58:11 IST" duration-ms="3112" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginLogOutTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.LoginPageTest@d5b810e]" started-at="2022-12-29T20:03:54 IST" name="tearDown" finished-at="2022-12-29T20:03:54 IST" duration-ms="158" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.LoginPageTest@342c38f8]" started-at="2022-12-30T19:58:11 IST" name="tearDown" finished-at="2022-12-30T19:58:11 IST" duration-ms="337" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.tmb.tests.LoginPageTest -->
       <class name="com.tmb.tests.AccountPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tmb.tests.AccountPageTest@fa49800]" started-at="2022-12-29T20:03:45 IST" name="setUp" finished-at="2022-12-29T20:03:51 IST" duration-ms="5908" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tmb.tests.AccountPageTest@2a54a73f]" started-at="2022-12-30T19:58:01 IST" name="setUp" finished-at="2022-12-30T19:58:07 IST" duration-ms="6119" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="validateAccountHeader()[pri:0, instance:com.tmb.tests.AccountPageTest@fa49800]" started-at="2022-12-29T20:03:51 IST" name="validateAccountHeader" finished-at="2022-12-29T20:03:54 IST" duration-ms="3030" status="PASS">
+        <test-method signature="validateAccountHeader()[pri:0, instance:com.tmb.tests.AccountPageTest@2a54a73f]" started-at="2022-12-30T19:58:07 IST" name="validateAccountHeader" finished-at="2022-12-30T19:58:10 IST" duration-ms="3047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateAccountHeader -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.AccountPageTest@fa49800]" started-at="2022-12-29T20:03:54 IST" name="tearDown" finished-at="2022-12-29T20:03:54 IST" duration-ms="206" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.AccountPageTest@2a54a73f]" started-at="2022-12-30T19:58:10 IST" name="tearDown" finished-at="2022-12-30T19:58:10 IST" duration-ms="184" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

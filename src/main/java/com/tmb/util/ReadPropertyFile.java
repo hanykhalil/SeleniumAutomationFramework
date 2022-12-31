@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -23,6 +25,7 @@ public final class ReadPropertyFile {
 		try {
 			fip = new FileInputStream(FrameworkConstants.getConfigFilePath());
 			prop.load(fip);
+
 			for (Map.Entry<Object, Object> entry : prop.entrySet()) {
 				CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
 			}

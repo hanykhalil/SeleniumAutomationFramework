@@ -4,23 +4,31 @@ import org.openqa.selenium.By;
 
 import com.tmb.driver.DriverManager;
 
-public final class AccountPage {
+public final class AccountPage extends BasePage {
 
 	private final By logOutLnk = By.xpath("//a[contains(text(),'Logout')]");
 	private final By welcomeMsg = By.xpath("//p[contains(text(),'Hello')]");
 	private final By accountHeaderLbl = By.xpath("//h1[text()='Account']");
+	private final By storeMenu = By.xpath("(//a[text()='Store'])[1]");
+	
+	
 	public String getWelcomeText() {
 
-		return DriverManager.getDriver().findElement(welcomeMsg).getText();
+		return getText(welcomeMsg);
 	}
 	
 	public String getAccountHeader() {
 
-		return DriverManager.getDriver().findElement(accountHeaderLbl).getText();
+		return getText(accountHeaderLbl);
 	}
 	
 	public LoginPage clickLogout() {
-		DriverManager.getDriver().findElement(logOutLnk).click();
+		doClick(logOutLnk,"Presence");
 		return new LoginPage();
+	}
+	public StorePage clickOnStoreMenu() {
+		doClick(storeMenu, "Presence");
+		
+		return new StorePage();
 	}
 }
