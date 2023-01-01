@@ -6,6 +6,7 @@ import java.util.Objects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.tmb.enums.ConfigProperty;
 import com.tmb.util.ReadPropertyFile;
 
 public final class Driver {
@@ -20,7 +21,7 @@ public final class Driver {
 		if (Objects.isNull(DriverManager.getDriver())) {
 			WebDriver driver = new ChromeDriver();
 			DriverManager.setDriver(driver);
-			DriverManager.getDriver().get(ReadPropertyFile.getValue("url"));
+			DriverManager.getDriver().get(ReadPropertyFile.getValue(ConfigProperty.URL));
 			DriverManager.getDriver().manage().window().maximize();
 		}
 

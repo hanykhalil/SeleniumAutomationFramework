@@ -3,6 +3,7 @@ package com.tmb.pages;
 import org.openqa.selenium.By;
 
 import com.tmb.driver.DriverManager;
+import com.tmb.enums.WaitStrategy;
 
 public final class StorePage extends BasePage {
 
@@ -12,23 +13,23 @@ public final class StorePage extends BasePage {
 	private final By viewCartBtn = By.xpath("//h2[text()='Blue Shoes']/../../a[text()='View cart']");
 
 	public StorePage enterTextToSearchFld(String seachText) {
-		doSendKeys(searchFld, seachText);
+		doSendKeys(searchFld, seachText,WaitStrategy.PRESENCE);
 
 		return new StorePage();
 	}
 
 	public StorePage clickOnSearchBtn() {
-		doClick(searchBtn, "Clickable");
+		doClick(searchBtn,WaitStrategy.CLICKABLE);
 		return new StorePage();
 	}
 
 	public StorePage clickOnAddToCartBtn() {
-		doClick(addToCartBtn, "Clickable");
+		doClick(addToCartBtn, WaitStrategy.CLICKABLE);
 		return new StorePage();
 	}
 
 	public void clickOnViewCart() {
-		doClick(viewCartBtn, "Presence");
+		doClick(viewCartBtn, WaitStrategy.PRESENCE);
 	}
 
 }

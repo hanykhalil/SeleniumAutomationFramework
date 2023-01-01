@@ -8,22 +8,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tmb.Constants.FrameworkConstants;
 import com.tmb.driver.DriverManager;
+import com.tmb.enums.WaitStrategy;
+import com.tmb.factories.ExplicitWaitFactory;
 
 public class BasePage {
 
-	protected void doClick(By by, String waitStrategy) {
-		if (waitStrategy.equalsIgnoreCase("Clickable")) {
-			explicitlyWaitForElementToBeClickable(by);
-		}
-
-		if (waitStrategy.equalsIgnoreCase("Presence")) {
-			explicitlyWaitForElementToBePresent(by);
-		}
+	protected void doClick(By by, WaitStrategy waitStrategy) {
+		ExplicitWaitFactory.performExplicitwait(by,waitStrategy);
 		DriverManager.getDriver().findElement(by).click();
 	}
 
-	protected void doSendKeys(By by, String value) {
-		explicitlyWaitForElementToBeClickable(by);
+	protected void doSendKeys(By by, String value,WaitStrategy waitStrategy) {
+		ExplicitWaitFactory.performExplicitwait(by,waitStrategy);
 		DriverManager.getDriver().findElement(by).clear();
 		DriverManager.getDriver().findElement(by).sendKeys(value);
 	}
@@ -33,17 +29,6 @@ public class BasePage {
 
 	}
 
-	private void explicitlyWaitForElementToBeClickable(By by) {
-
-		new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitwaittime()))
-				.until(ExpectedConditions.elementToBeClickable(by));
-
-	}
-
-	private void explicitlyWaitForElementToBePresent(By by) {
-
-		new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitwaittime()))
-				.until(ExpectedConditions.presenceOfElementLocated(by));
-
-	}
+	
+	
 }

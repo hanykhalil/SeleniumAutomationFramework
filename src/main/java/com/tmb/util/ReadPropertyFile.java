@@ -11,6 +11,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 import com.tmb.Constants.FrameworkConstants;
+import com.tmb.enums.ConfigProperty;
 
 public final class ReadPropertyFile {
 	private ReadPropertyFile() {
@@ -40,13 +41,13 @@ public final class ReadPropertyFile {
 
 	}
 
-	public static String getValue(String key) throws Exception {
+	public static String getValue(ConfigProperty key) throws Exception {
 
-		if (Objects.isNull(CONFIGMAP.get(key)) || Objects.isNull(key)) {
+		if (Objects.isNull(CONFIGMAP.get(key.name().toLowerCase())) || Objects.isNull(key)){
 			throw new Exception("Property Name " + key + " is not Found.Please check config.properties");
 		}
 
-		return CONFIGMAP.get(key);
+		return CONFIGMAP.get(key.name().toLowerCase());
 	}
 
 }

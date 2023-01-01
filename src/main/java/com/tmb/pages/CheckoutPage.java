@@ -3,6 +3,7 @@ package com.tmb.pages;
 import org.openqa.selenium.By;
 
 import com.tmb.driver.DriverManager;
+import com.tmb.enums.WaitStrategy;
 
 public final class CheckoutPage extends BasePage{
 
@@ -16,34 +17,34 @@ public final class CheckoutPage extends BasePage{
 
 	
 	public CheckoutPage enterFirstname(String firstname) {
-		doSendKeys(firstName, firstname);
+		doSendKeys(firstName, firstname,WaitStrategy.VISIBILITY);
 		return this;
 	}
 	public CheckoutPage enterLastName(String lastname) {
-		doSendKeys(lastName, lastname);
+		doSendKeys(lastName, lastname,WaitStrategy.VISIBILITY);
 		
 		return this;
 	}
 	public CheckoutPage enterBillingAddress(String billingaddress) {
-		doSendKeys(billingAddress1, billingaddress);
+		doSendKeys(billingAddress1, billingaddress,WaitStrategy.VISIBILITY);
 		return this;
 	}
 	public CheckoutPage enterBillingCity(String billingcity) {
-		doSendKeys(billingCity, billingcity);
+		doSendKeys(billingCity, billingcity,WaitStrategy.VISIBILITY);
 		return this;
 	}
 	public CheckoutPage enterBillingPostalCode(String postalCode) {
-		doSendKeys(billingPostCode, postalCode);
+		doSendKeys(billingPostCode, postalCode,WaitStrategy.VISIBILITY);
 		return this;
 	}
 	
 	public CheckoutPage enterBillingEmail(String emailId) {
-		doSendKeys(billingEmail, emailId);
+		doSendKeys(billingEmail, emailId,WaitStrategy.VISIBILITY);
 		
 		return this;
 	}
 	
 	public void clickPlaceOrderBtn() {
-		doClick(placeOrderBtn, "Clickable");
+		doClick(placeOrderBtn, WaitStrategy.CLICKABLE);
 	}
 }

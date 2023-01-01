@@ -3,6 +3,7 @@ package com.tmb.pages;
 import org.openqa.selenium.By;
 
 import com.tmb.driver.DriverManager;
+import com.tmb.enums.WaitStrategy;
 
 public final class AccountPage extends BasePage {
 
@@ -23,11 +24,11 @@ public final class AccountPage extends BasePage {
 	}
 	
 	public LoginPage clickLogout() {
-		doClick(logOutLnk,"Presence");
+		doClick(logOutLnk,WaitStrategy.CLICKABLE);
 		return new LoginPage();
 	}
 	public StorePage clickOnStoreMenu() {
-		doClick(storeMenu, "Presence");
+		doClick(storeMenu, WaitStrategy.PRESENCE);
 		
 		return new StorePage();
 	}
