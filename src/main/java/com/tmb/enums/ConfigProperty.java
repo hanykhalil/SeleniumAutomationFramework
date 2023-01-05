@@ -2,6 +2,6 @@ package com.tmb.enums;
 
 public enum ConfigProperty {
 	
-	URL
+	URL,OVERRIDEREPORTS,PASSEDSTEPSSCREENSHOT,FAILEDSTEPSSCREENSHOT;
 
 }

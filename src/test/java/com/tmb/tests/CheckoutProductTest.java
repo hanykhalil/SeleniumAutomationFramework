@@ -1,5 +1,7 @@
 package com.tmb.tests;
 
+import java.util.Map;
+
 import org.testng.annotations.Test;
 
 import com.tmb.pages.AccountPage;
@@ -7,23 +9,24 @@ import com.tmb.pages.CartPage;
 import com.tmb.pages.CheckoutPage;
 import com.tmb.pages.LoginPage;
 import com.tmb.pages.StorePage;
+import com.tmb.util.DataProviderUtils;
 
 public final class CheckoutProductTest extends BaseTest{
 	
-	@Test
-	public void checkOutasRegUser()  {
+	@Test(dataProvider = "getData",dataProviderClass = DataProviderUtils.class)
+	public void checkOutasRegUser(Map<String,String> data) throws Exception  {
 		LoginPage loginPage = new LoginPage();
 		AccountPage accountPage = new AccountPage();
 		StorePage storePage = new StorePage();
 		CheckoutPage checkoutPage = new CheckoutPage();
 		CartPage cartPage = new CartPage();
-		loginPage.enterUserName("singhabhi04").enterPassword("Test@123").clickLoginBtn();
+		loginPage.enterUserName(data.get("username")).enterPassword(data.get("password")).clickLoginBtn();
 		accountPage.clickOnStoreMenu();
-		storePage.enterTextToSearchFld("Blue").clickOnSearchBtn().clickOnAddToCartBtn().clickOnViewCart();
-		cartPage.enterQuantity("1");
+		storePage.enterTextToSearchFld(data.get("productSearch")).clickOnSearchBtn().clickOnAddToCartBtn().clickOnViewCart();
+		cartPage.enterQuantity(data.get("quantity"));
 		cartPage.clickOnProceedToCheckOutBtn();
-		checkoutPage.enterFirstname("Demo Name").enterLastName("Demo Last Name").enterBillingAddress("ABC Address").enterBillingCity("Demo City")
-		.enterBillingPostalCode("765507").enterBillingEmail("test@test.com").clickPlaceOrderBtn();
+		checkoutPage.enterFirstname(data.get("firstName")).enterLastName(data.get("lastName")).enterBillingAddress(data.get("billingAddress")).enterBillingCity(data.get("billingCity"))
+		.enterBillingPostalCode(data.get("billingPostCode")).enterBillingEmail(data.get("billingEmail")).clickPlaceOrderBtn();
 	}
 
 }
