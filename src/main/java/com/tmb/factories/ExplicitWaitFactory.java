@@ -10,7 +10,7 @@ import com.tmb.Constants.FrameworkConstants;
 import com.tmb.driver.DriverManager;
 import com.tmb.enums.WaitStrategy;
 
-public class ExplicitWaitFactory {
+public final class ExplicitWaitFactory {
 
 	public static void performExplicitwait(By by, WaitStrategy waitStrategy) {
 		if (waitStrategy == WaitStrategy.CLICKABLE) {

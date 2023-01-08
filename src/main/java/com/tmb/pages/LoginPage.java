@@ -14,7 +14,7 @@ public final class LoginPage extends BasePage{
 	private final By passWordTxtbx = By.xpath("//label[@for='password']/following-sibling::input[@id='password']");
 	private final By loginBtn = By.xpath("//button[@name='login']");
 
-	public LoginPage enterUserName(String userName) throws Exception {
+	public LoginPage enterUserName(String userName)  {
 		
 		
 		doSendKeys(userNameTxtbx, userName,WaitStrategy.VISIBILITY, "UserName");

@@ -38,7 +38,7 @@ public class BasePage {
 
 	}
 
-	protected void assertText(String actual ,String expected) throws Exception {
+	protected void assertText(String actual ,String expected) {
 		if (actual.equals( expected)) {
 			ExtentLogger.pass("Account Header Validation Successfull!! as Actual value "+actual+" matches with the expected value "+expected,true);
 		}

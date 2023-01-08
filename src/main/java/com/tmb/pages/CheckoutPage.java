@@ -15,12 +15,12 @@ public final class CheckoutPage extends BasePage {
 	private final By billingEmail = By.xpath("//input[@id='billing_email']");
 	private final By placeOrderBtn = By.xpath("//button[text()='Place order']");
 
-	public CheckoutPage enterFirstname(String firstname) throws Exception {
+	public CheckoutPage enterFirstname(String firstname) {
 		doSendKeys(firstName, firstname, WaitStrategy.VISIBILITY, "FirstName");
 		return this;
 	}
 
-	public CheckoutPage enterLastName(String lastname) throws Exception {
+	public CheckoutPage enterLastName(String lastname) {
 		doSendKeys(lastName, lastname, WaitStrategy.VISIBILITY, "LastName");
 
 		return this;

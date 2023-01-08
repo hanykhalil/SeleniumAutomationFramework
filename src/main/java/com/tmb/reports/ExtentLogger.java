@@ -1,10 +1,6 @@
 package com.tmb.reports;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.tmb.driver.DriverManager;
 import com.tmb.enums.ConfigProperty;
 import com.tmb.util.ReadPropertyFile;
 import com.tmb.util.ScreenshotUtils;
@@ -31,7 +27,7 @@ public final class ExtentLogger {
 		ExtentManager.getExtentTest().info(message);
 	}
 
-	public static void pass(String message, boolean needScreenshot) throws Exception {
+	public static void pass(String message, boolean needScreenshot)  {
 		if (ReadPropertyFile.getValue(ConfigProperty.PASSEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && needScreenshot) {
 			ExtentManager.getExtentTest().pass(message,
 					MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
@@ -43,7 +39,7 @@ public final class ExtentLogger {
 
 	
 
-	public static void fail(String message, boolean needScreenshot) throws Exception {
+	public static void fail(String message, boolean needScreenshot)  {
 		if (ReadPropertyFile.getValue(ConfigProperty.FAILEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && needScreenshot) {
 			ExtentManager.getExtentTest().fail(message,
 					MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());

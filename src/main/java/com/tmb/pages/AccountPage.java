@@ -2,15 +2,20 @@ package com.tmb.pages;
 
 import org.openqa.selenium.By;
 
-import com.tmb.driver.DriverManager;
 import com.tmb.enums.WaitStrategy;
+import com.tmb.util.DyanamicXpathUtils;
 
 public final class AccountPage extends BasePage {
 
 	private final By logOutLnk = By.xpath("//a[contains(text(),'Logout')]");
 	private final By welcomeMsg = By.xpath("//p[contains(text(),'Hello')]");
 	private final By accountHeaderLbl = By.xpath("//h1[text()='Account']");
-	private final By storeMenu = By.xpath("(//a[text()='Store'])[1]");
+	private String globalMenus = "//div[@id='ast-desktop-header']//li/a[text()='%s']";
+
+	public void clickOnGlobalMenu(String menu) {
+		String newXpath = DyanamicXpathUtils.getXpath(globalMenus, menu);
+		doClick(By.xpath(newXpath), WaitStrategy.CLICKABLE, " Store");
+	}
 
 	public String getWelcomeText() {
 
@@ -27,13 +32,7 @@ public final class AccountPage extends BasePage {
 		return new LoginPage();
 	}
 
-	public StorePage clickOnStoreMenu() {
-		doClick(storeMenu, WaitStrategy.PRESENCE, " Store Menu");
-
-		return new StorePage();
-	}
-
-	public AccountPage validateAccountHeader(String actual, String expected) throws Exception {
+	public AccountPage validateAccountHeader(String actual, String expected)  {
 		assertText(actual, expected);
 
 		return this;

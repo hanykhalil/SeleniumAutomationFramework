@@ -8,6 +8,7 @@ import org.testng.ISuiteListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.tmb.annotations.FrameworkAnnotation;
 import com.tmb.reports.ExtentLogger;
 import com.tmb.reports.ExtentReport;
 
@@ -18,28 +19,28 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 		try {
 			ExtentReport.initReports();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		try {
+		
 			ExtentReport.flushReports();
-		} catch (IOException e) {
+		
 
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	@Override
 	public void onTestStart(ITestResult result) {
 		ExtentReport.createTest(result.getMethod().getMethodName());
-		ExtentLogger.info(result.getMethod().getMethodName()+ " Test Case Execution Started");
+		ExtentLogger.info(result.getMethod().getMethodName() + " Test Case Execution Started");
+		ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
+				.getAnnotation(FrameworkAnnotation.class).author());
+		ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod()
+				.getAnnotation(FrameworkAnnotation.class).category());
 	}
 
 	@Override
@@ -49,15 +50,12 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		try {
-			ExtentLogger.fail(result.getMethod().getMethodName() + " is failed",true);
+		
+			ExtentLogger.fail(result.getMethod().getMethodName() + " is failed", true);
 			ExtentLogger.fail(result.getThrowable().toString());
 			ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
-		} catch (Exception e) {
 		
-			e.printStackTrace();
-		}
-		
+
 	}
 
 	@Override

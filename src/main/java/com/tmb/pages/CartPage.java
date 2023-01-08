@@ -10,7 +10,7 @@ public class CartPage extends BasePage {
 	private final By quantityTxtbx = By.xpath("//input[@title='Qty']");
 	private final By proccedToCheckOutBtn = By.xpath("//a[contains(text(),'Proceed to checkout')]");
 
-	public CartPage enterQuantity(String quantity) throws Exception {
+	public CartPage enterQuantity(String quantity)  {
 		doSendKeys(quantityTxtbx, quantity, WaitStrategy.CLICKABLE, "Quantity Text Box");
 		return this;
 
