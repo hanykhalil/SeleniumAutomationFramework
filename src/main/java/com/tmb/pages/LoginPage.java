@@ -24,7 +24,7 @@ public final class LoginPage extends BasePage{
 
 	public LoginPage enterPassword(String passWord) {
 	
-		doSendKeys(passWordTxtbx, passWord,WaitStrategy.VISIBILITY, "Password");
+		doSendKeysWithDecoder(passWordTxtbx, passWord,WaitStrategy.VISIBILITY, "Password");
 		
 		return this;
 	}

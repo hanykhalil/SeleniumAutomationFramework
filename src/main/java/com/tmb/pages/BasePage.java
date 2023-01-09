@@ -7,6 +7,7 @@ import com.tmb.driver.DriverManager;
 import com.tmb.enums.WaitStrategy;
 import com.tmb.factories.ExplicitWaitFactory;
 import com.tmb.reports.ExtentLogger;
+import com.tmb.util.DecodeUtils;
 
 public class BasePage {
 
@@ -14,23 +15,29 @@ public class BasePage {
 		ExplicitWaitFactory.performExplicitwait(by, waitStrategy);
 		DriverManager.getDriver().findElement(by).click();
 		try {
-			ExtentLogger.pass(elementName + " is Clicked",true);
+			ExtentLogger.pass(elementName + " is Clicked", true);
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
 	}
 
-	protected void doSendKeys(By by, String value, WaitStrategy waitStrategy, String elementName)  {
+	protected void doSendKeys(By by, String value, WaitStrategy waitStrategy, String elementName) {
 		ExplicitWaitFactory.performExplicitwait(by, waitStrategy);
 		DriverManager.getDriver().findElement(by).clear();
 		DriverManager.getDriver().findElement(by).sendKeys(value);
-		try {
-			ExtentLogger.pass(value + " is entered in text field " + elementName + " successfully",true);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		ExtentLogger.pass(value + " is entered in text field " + elementName + " successfully", true);
+
+	}
+	protected void doSendKeysWithDecoder(By by, String value, WaitStrategy waitStrategy, String elementName) {
+		
+		ExplicitWaitFactory.performExplicitwait(by, waitStrategy);
+		DriverManager.getDriver().findElement(by).clear();
+		DriverManager.getDriver().findElement(by).sendKeys(DecodeUtils.getDecodedString(value));
+
+		ExtentLogger.pass(value + " is entered in text field " + elementName + " successfully", true);
+
 	}
 
 	protected String getText(By by) {
@@ -38,12 +45,13 @@ public class BasePage {
 
 	}
 
-	protected void assertText(String actual ,String expected) {
-		if (actual.equals( expected)) {
-			ExtentLogger.pass("Account Header Validation Successfull!! as Actual value "+actual+" matches with the expected value "+expected,true);
-		}
-		else {
-			ExtentLogger.fail("Account Header Validation failed as Actual value "+actual+" does not matches with the expected value "+expected,true);
+	protected void assertText(String actual, String expected) {
+		if (actual.equals(expected)) {
+			ExtentLogger.pass("Account Header Validation Successfull!! as Actual value " + actual
+					+ " matches with the expected value " + expected, true);
+		} else {
+			ExtentLogger.fail("Account Header Validation failed as Actual value " + actual
+					+ " does not matches with the expected value " + expected, true);
 
 		}
 	}
