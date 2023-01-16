@@ -46,8 +46,11 @@ public class ExtentReport {
 	}
 
 	public static void createTest(String testcasename) {
+		System.out.println("step 2");
 		ExtentTest test = extent.createTest(testcasename);
+		
 		ExtentManager.setExtentTest(test);
+		
 	}
 	public static void addAuthors(String[] authors) {
 		for(String author:authors) {

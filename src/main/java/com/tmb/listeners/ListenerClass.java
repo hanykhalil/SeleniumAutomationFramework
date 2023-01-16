@@ -16,25 +16,20 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onStart(ISuite suite) {
-		try {
-			ExtentReport.initReports();
-		} catch (Exception e) {
 
-			e.printStackTrace();
-		}
+		ExtentReport.initReports();
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		
-			ExtentReport.flushReports();
-		
 
-		
+		ExtentReport.flushReports();
+
 	}
 
 	@Override
 	public void onTestStart(ITestResult result) {
+		System.out.println("step 1");
 		ExtentReport.createTest(result.getMethod().getMethodName());
 		ExtentLogger.info(result.getMethod().getMethodName() + " Test Case Execution Started");
 		ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
@@ -50,11 +45,10 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		
-			ExtentLogger.fail(result.getMethod().getMethodName() + " is failed", true);
-			ExtentLogger.fail(result.getThrowable().toString());
-			ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
-		
+
+		ExtentLogger.fail(result.getMethod().getMethodName() + " is failed", true);
+
+		ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
 
 	}
 
