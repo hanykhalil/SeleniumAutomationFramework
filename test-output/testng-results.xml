@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-15T21:49:44 IST" name="Suite" finished-at="2023-01-15T21:49:53 IST" duration-ms="8934">
+  <suite started-at="2023-01-19T20:06:39 IST" name="Suite" finished-at="2023-01-19T20:07:02 IST" duration-ms="22929">
     <groups>
     </groups>
-    <test started-at="2023-01-15T21:49:44 IST" name="Test" finished-at="2023-01-15T21:49:53 IST" duration-ms="8934">
-      <class name="com.tmb.tests.LoginPageTest">
-        <test-method is-config="true" signature="setUp([Ljava.lang.Object;)[pri:0, instance:com.tmb.tests.LoginPageTest@52af26ee]" started-at="2023-01-15T21:49:45 IST" name="setUp" finished-at="2023-01-15T21:49:49 IST" duration-ms="4678" status="PASS">
+    <test started-at="2023-01-19T20:06:39 IST" name="Test" finished-at="2023-01-19T20:07:02 IST" duration-ms="22929">
+      <class name="com.tmb.tests.CheckoutProductTest">
+        <test-method is-config="true" signature="setUp([Ljava.lang.Object;)[pri:0, instance:com.tmb.tests.CheckoutProductTest@4efac082]" started-at="2023-01-19T20:06:48 IST" name="setUp" finished-at="2023-01-19T20:06:51 IST" duration-ms="2421" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Ljava.lang.Object;@4d74c3ba]]>
+                <![CDATA[[Ljava.lang.Object;@60e5272]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="LoginLogOutTest(java.util.Map)[pri:0, instance:com.tmb.tests.LoginPageTest@52af26ee]" started-at="2023-01-15T21:49:49 IST" name="LoginLogOutTest" data-provider="getData" finished-at="2023-01-15T21:49:53 IST" duration-ms="3471" status="PASS">
+        <test-method signature="checkOutasRegUser(java.util.Map)[pri:0, instance:com.tmb.tests.CheckoutProductTest@4efac082]" started-at="2023-01-19T20:06:51 IST" name="checkOutasRegUser" data-provider="getData" finished-at="2023-01-19T20:07:02 IST" duration-ms="11057" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{lastName=Singh, productSearch=blue, quantity=1, testname=checkOutasRegUser, execute=yes, billingPostCode=8253330, menuText=Store, firstName=Abhishek, password=VGVzdEAxMjM=, billingEmail=test@ram.com, browser=chrome, billingAddress=Rabodh, billingCity=Ramgarh, username=singhabhi04}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkOutasRegUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.CheckoutProductTest@4efac082]" started-at="2023-01-19T20:07:02 IST" name="tearDown" finished-at="2023-01-19T20:07:02 IST" duration-ms="162" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.tmb.tests.CheckoutProductTest -->
+      <class name="com.tmb.tests.LoginPageTest">
+        <test-method is-config="true" signature="setUp([Ljava.lang.Object;)[pri:0, instance:com.tmb.tests.LoginPageTest@59505b48]" started-at="2023-01-19T20:06:40 IST" name="setUp" finished-at="2023-01-19T20:06:44 IST" duration-ms="4760" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@78de58ea]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="LoginLogOutTest(java.util.Map)[pri:0, instance:com.tmb.tests.LoginPageTest@59505b48]" started-at="2023-01-19T20:06:44 IST" name="LoginLogOutTest" data-provider="getData" finished-at="2023-01-19T20:06:48 IST" duration-ms="3765" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -29,7 +57,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginLogOutTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.LoginPageTest@52af26ee]" started-at="2023-01-15T21:49:53 IST" name="tearDown" finished-at="2023-01-15T21:49:53 IST" duration-ms="142" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tmb.tests.LoginPageTest@59505b48]" started-at="2023-01-19T20:06:48 IST" name="tearDown" finished-at="2023-01-19T20:06:48 IST" duration-ms="170" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
